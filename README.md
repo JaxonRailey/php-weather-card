@@ -3,6 +3,6 @@ An example of HTTP request server to server using cURL to get weather informatio
 
 This script allows you to view the weather of a requested city from user input. Displays the weather forecast for the current day and the next 6 days, with minimum and maximum temperatures. It also displays wind speed, humidity and probability of precipitation for the current day. 
 
-The data is taken from [weatherDB](https://weatherdbi.herokuapp.com/)
+The data is taken from [weatherDB](https://weatherdbi.herokuapp.com/).
 
-![Weather Card](https://github.com/JaxonRailey/weather-card/blob/main/weather-card.jpg?raw=true)
+![Weather Card](https://github.com/JaxonRailey/weather-card/blob/main/weather-card.jpg?raw=true =x250)
