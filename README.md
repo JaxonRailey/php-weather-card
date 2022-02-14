@@ -6,3 +6,5 @@ This script allows you to view the weather of a requested city from user input. 
 The data is taken from [weatherDB](https://weatherdbi.herokuapp.com/).
 
 ![Weather Card](https://github.com/JaxonRailey/weather-card/blob/main/weather-card.jpg?raw=true =250x250)
+
+<img src="https://github.com/JaxonRailey/weather-card/blob/main/weather-card.jpg?raw=true" width="200" height="400" />
