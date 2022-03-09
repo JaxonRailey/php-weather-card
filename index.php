@@ -2,7 +2,12 @@
 
 if (!empty($_GET['city'])) {
     $city = str_replace(' ', '-', strip_tags($_GET['city']));
-    $json = getWeather($city);
+
+    if (!extension_loaded('redis')) {
+        $json = getWeatherFromApi($city, true);
+    } else {
+        $json = getWeatherFromRedis($city);
+    }
 
     if (isset($json->status)) {
         echo 'city not found!'; die;
@@ -12,7 +17,7 @@ if (!empty($_GET['city'])) {
     $region = trim(str_replace($city . ',', '', $json->region));
 }
 
-function getWeather($city) {
+function getWeatherFromApi(string $city, bool $json = false) {
 
     $url  = 'https://weatherdbi.herokuapp.com/data/weather/' . $city;
     $curl = curl_init($url);
@@ -23,7 +28,22 @@ function getWeather($city) {
     $result = curl_exec($curl);
     curl_close($curl);
 
-    return json_decode($result);
+    return $json ? json_decode($result) : $result;
+}
+
+function getWeatherFromRedis(string $city) {
+
+    $redis = new Redis();
+    $redis->connect('127.0.0.1', 6379);
+
+    if (!$redis->exists($city)) {
+        $json = getWeatherFromApi($city);
+        $redis->setex($city, 3600, $json);
+    } else {
+        $json = $redis->get($city);
+    }
+
+    return json_decode($json);
 }
 
 ?>
