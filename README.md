@@ -8,3 +8,5 @@ The information are stored in Redis cache for an hour.
 The data is taken from [weatherDB](https://weatherdbi.herokuapp.com/).
 
 <img src="https://github.com/JaxonRailey/weather-card/blob/main/weather-card.jpg?raw=true" width="400" alt="Weather Card" />
+
+:star: **If you liked what I did, if it was useful to you or if it served as a starting point for something more magical let me know with a star** :green_heart:
